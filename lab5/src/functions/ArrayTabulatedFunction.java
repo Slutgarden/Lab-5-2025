@@ -226,8 +226,7 @@ public class ArrayTabulatedFunction implements TabulatedFunction, Serializable{
             if (this.pointsCount != other.pointsCount) return false;
 
             for (int i = 0; i < pointsCount; i++) {
-                if (Math.abs(this.points[i].getX() - other.points[i].getX()) >= EPS ||
-                        Math.abs(this.points[i].getY() - other.points[i].getY()) >= EPS) {
+                if (!this.points[i].equals(other.points[i])) {
                     return false;
                 }
             }
@@ -241,8 +240,7 @@ public class ArrayTabulatedFunction implements TabulatedFunction, Serializable{
                 FunctionPoint thisPoint = this.getPoint(i);
                 FunctionPoint otherPoint = other.getPoint(i);
 
-                if (Math.abs(thisPoint.getX() - otherPoint.getX()) >= EPS ||
-                        Math.abs(thisPoint.getY() - otherPoint.getY()) >= EPS) {
+                if (!thisPoint.equals(otherPoint)) {
                     return false;
                 }
             }
